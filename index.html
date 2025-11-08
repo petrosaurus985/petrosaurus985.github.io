@@ -1,9 +1,26 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://foothillsclovis.my.canva.site">
+  <meta charset="utf-8" />
+  <title>My Domain — Foothills</title>
+  <style>html,body,iframe{height:100%;width:100%;margin:0;border:0;}iframe{display:block;}</style>
 </head>
 <body>
-  <p>Redirecting to our official website...</p>
+  <iframe src="https://foothillsclovis.my.canva.site/" id="siteFrame" sandbox="allow-scripts allow-forms allow-popups"></iframe>
+
+  <script>
+    // If the iframe fails to load due to X-Frame-Options, we'll fallback to a normal redirect:
+    const iframe = document.getElementById('siteFrame');
+    setTimeout(() => {
+      try {
+        // try access document inside iframe (will throw if blocked)
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        // if accessible, do nothing
+      } catch (e) {
+        // blocked — fallback to full redirect
+        window.location.href = 'https://foothillsclovis.my.canva.site/';
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
